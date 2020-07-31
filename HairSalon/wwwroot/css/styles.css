@@ -3,16 +3,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 400px;
+  
+}
+
+#site-title {
+  font-size: xx-large;
+  font-weight: bolder;
 }
 
 .stylist {
   border-style: solid;
   border-width: 1px;
   border-color: lightgray;
+  margin: 10px;
   padding: 10px;
+  min-width: 400px;
 }
 
-.page-title {
-  font-size: large;
+.view-title {
+  font-size: x-large;
+  font-weight: bold;
 }
+
+/* #nav {
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+} */
