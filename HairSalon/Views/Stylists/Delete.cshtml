@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+
+<p class="view-title">Delete Stylist</p>
+<p class="view-title">@Model.FirstName @Model.LastName</p>
+
+@using (Html.BeginForm())
+{
+  <input type="Confirm" value="Delete" class="btn btn-danger" />
+}
