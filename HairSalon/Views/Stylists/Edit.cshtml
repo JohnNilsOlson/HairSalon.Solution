@@ -7,7 +7,10 @@
 <p class="view-title">Edit Stylist Details</p>
 <p class="view-title">@Model.FirstName @Model.LastName</p>
 
-<div class="form-group">
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StylistId)
+  <div class="form-group">
     @Html.LabelFor(model => model.FirstName)
     @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
   </div>
@@ -16,3 +19,4 @@
     @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
   </div>
   <input type="submit" value="Edit Stylist" class="btn btn-primary" />
+}
