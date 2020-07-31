@@ -8,5 +8,13 @@
 <p class="view-title">@Model.FirstName @Model.LastName</p>
 <hr />
 
+<p class="view-title">Clients</p>
+@foreach (Client client in @Model.Clients)
+{
+  <div class="client">
+    @Html.ActionLink($"{client.FirstName} {client.LastName}", "Details", "Clients", new { id = client.ClientId })
+  </div>
+}
+
 <p class="page-link">@Html.ActionLink("Edit Stylist", "Edit", new {id = Model.StylistId})</p>
 <p class="page-link">@Html.ActionLink("Remove Stylist", "Delete", new {id = Model.StylistId})</p>
