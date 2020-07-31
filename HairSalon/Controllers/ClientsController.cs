@@ -81,10 +81,16 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Search(string search)
     {
+      return RedirectToAction("Results", new { search = search });
+    }
+
+    public ActionResult Results(string search)
+    {
       IQueryable<Client> query = _db.Clients;
       Regex searchRegex = new Regex(search, RegexOptions.IgnoreCase);
       query = query.Where(clients => searchRegex.IsMatch(clients.FirstName));
-      return RedirectToAction("Results");
+      List<Client> model = new List<Client>(query.ToList());
+      return View(model);
     }
   }
 }
