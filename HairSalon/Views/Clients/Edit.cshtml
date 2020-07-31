@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<p class="view-title">Edit Client Details</p>
+<p class="view-title">@Model.FirstName @Model.LastName</p>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ClientId)
+  <div class="form-group">
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId", @ViewBag.StylistId, null, new { @class = "form-control" })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.LastName)
+    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+  </div>
+  <input type="submit" value="Edit Client" class="btn btn-primary" />
+}
