@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
+      @Html.Partial("Nav")
     <div class="flex container">
       @Html.Partial("Header")
       @RenderBody()
-      @Html.Partial("Footer")
+      @Html.Partial("Footer") 
     </div>
   </body>
 </html>
