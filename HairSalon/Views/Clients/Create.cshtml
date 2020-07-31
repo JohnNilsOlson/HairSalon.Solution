@@ -10,7 +10,7 @@
 {
   <div class="form-group">
     @Html.LabelFor(model => model.Stylist)
-    @Html.DropDownList("StylistId", @ViewBag.StylistId, null, new { @class = "form-control" })
+    @Html.DropDownList("StylistId", @ViewBag.StylistId, null, new { @class = "form-control", @required=true })
   </div>
   <div class="form-group">
     @Html.LabelFor(model => model.FirstName)
