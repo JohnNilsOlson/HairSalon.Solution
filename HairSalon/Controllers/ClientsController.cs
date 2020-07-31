@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using HairSalon.Models;
 
 namespace HairSalon.Controllers
@@ -75,6 +76,15 @@ namespace HairSalon.Controllers
     public ActionResult Search()
     {
       return View();
+    }
+
+    [HttpPost]
+    public ActionResult Search(string search)
+    {
+      IQueryable<Client> query = _db.Clients;
+      Regex searchRegex = new Regex(search, RegexOptions.IgnoreCase);
+      query = query.Where(clients => searchRegex.IsMatch(clients.FirstName));
+      return RedirectToAction("Results");
     }
   }
 }
