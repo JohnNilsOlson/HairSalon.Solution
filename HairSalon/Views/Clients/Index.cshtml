@@ -13,9 +13,20 @@
   <p>No Clients Have Been Added Yet</p>
 }
 
-@foreach (Client client in Model)
+@foreach (Stylist stylist in ViewBag.Stylists)
 {
   <div class="stylist">
-    @Html.ActionLink($"{client.FirstName} {client.LastName}", "Details", new {id = client.ClientId })
+    @Html.ActionLink($"{stylist.FirstName} {stylist.LastName}", "Details", new {id = stylist.StylistId })
+    <hr />
+    @foreach (Client client in Model)
+    {
+      if (client.StylistId == stylist.StylistId)
+      {
+        <div class="client">
+          @Html.ActionLink($"{client.FirstName} {client.LastName}", "Details", new {id = client.ClientId })
+          <hr />
+        </div>
+      }
+    }
   </div>
 }
