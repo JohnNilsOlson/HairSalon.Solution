@@ -53,5 +53,11 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new {id = stylist.StylistId} );
     }
+
+    public ActionResult Delete(int id)
+    {
+      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylists => stylists.StylistId == id);
+      return View(thisStylist);
+    }
   }
 }
