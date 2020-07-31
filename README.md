@@ -6,7 +6,7 @@ Version 1.0 - July 31, 2020
 A practice in many-to-one database relationships.
 
 ## _Contributors_
-JohnNils Olson  
+JohnNils Olson
 
 ## _Usage_
 A webapp for business managers to track employees and associated clients.
@@ -38,7 +38,7 @@ Entity Framework Core
 MySql Server
 
 ## _Installation Instructions_
-* Cloning instructions.
+* Project Cloning instructions.
   1. Open Git Bash.
   2. Change the current working directory to the location where you would like to clone the repository.
   3. Type "git clone" followed by "(https://github.com/JohnNilsOlson/HairSalon.Solution)" (without quotes) and hit enter.
@@ -47,13 +47,44 @@ MySql Server
   6. Type "dotnet restore".
   7. Type "dotnet run".
 
-* Download instructions.
+* Project Download instructions.
   1. Visit "(github url)".
   2. Click the green "code" button and download zip file of project.
   3. Extract zip file to directory of choice.
   4. Open project directory in code editor of choice.
 
-* Instructions to run WebApp
+* Instructions to Set Up Database with MySql Workbench (Required to Run WebApp).
+  1. Open MySql Workbench.
+  2. Click on the "administration" tab.
+  3. Click on "data import/restore".
+  4. In Import Options, check "Import From Self-Contained File".
+  5. Navigate to the project directory and select "johnnils_olson.sql" from the root directory.
+  6. Under "Default Schema to be Imported To", click the "New" button.
+  7. Enter "johnnils_olson" in the pop-up prompt and click "OK".
+  8. Click "Start Import".
+  9. Click on the "schemas" tab, right-click and selected "Refresh All".
+
+* SQL Schema Query
+
+  DROP DATABASE IF EXISTS `johnnils_olson`;
+  CREATE DATABASE `johnnils_olson`;
+
+  USE `johnnils_olson`;
+
+  CREATE TABLE `clients` (
+    `ClientId` int NOT NULL AUTO_INCREMENT,
+    `FirstName` varchar(255) NOT NULL,
+    `LastName` varchar(255) NOT NULL,
+    `StylistId` int DEFAULT '0',
+  PRIMARY KEY (`ClientId`)
+
+  CREATE TABLE `stylists` (
+    `StylistId` int NOT NULL AUTO_INCREMENT,
+    `FirstName` varchar(255) DEFAULT NULL,
+    `LastName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`StylistId`)
+
+* Instructions to Run WebApp
   1. In the terminal, change working directory to ./HairSalon.
   2. Type "dotnet restore".
   3. Type "dotnet run".
