@@ -2,11 +2,14 @@
   Layout = "_Layout";
 }
 
+<p class="view-title">Search Clients</p>
+<hr />
+
 @using (Html.BeginForm())
 {
   <div class="form-group">
     <label for="search">Search for a Client by Name</label>
-    <input id="search" name="search" type="text" class="form-control" />
+    <input id="search" name="search" type="text" class="form-control" required="true" />
   </div>
   <input type="submit" value="Search" class="btn btn-primary" />
 }
