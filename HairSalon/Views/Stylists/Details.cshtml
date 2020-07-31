@@ -4,5 +4,8 @@
 
 @using HairSalon.Models;
 
+<p class="view-title">Stylist Details</p>
 <p class="view-title">@Model.FirstName @Model.LastName</p>
 <hr />
+
+<p class="page-link">@Html.ActionLink("Edit Stylist", "Edit", new {id = Model.StylistId})</p>
